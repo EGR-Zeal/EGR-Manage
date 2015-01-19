@@ -1,3 +1,3 @@
 <?php
 
-define("DBPASSWORD", "Zboys541019!");
+define("DBPASSWORD", "A_FAKE_PASSWORD");
