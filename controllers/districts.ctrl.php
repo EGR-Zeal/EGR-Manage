@@ -5,7 +5,7 @@ $page["body"] = "";
 foreach ($districts as $district) {
     $distname = str_replace(" ", "_", $district["name"]);
     $page["body"] .= <<<EOD
-            <a href="district/{$distname}">{$district["name"]}</a>\n
+            <a href="../district/{$distname}">{$district["name"]}</a>\n
 EOD;
 }
 $page["title"] = "Districts";

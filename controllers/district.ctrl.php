@@ -4,6 +4,8 @@ if (!empty($args[0])) {
     $dist_name = str_replace("_", " ", $args[0]);
     $dist_id = $db->query("SELECT id FROM district WHERE name = '$dist_name' LIMIT 1")[0]["id"];
     show_schools($dist_id, $dist_name);
+} else {
+    header("Location: http://egrobotics.com/dev/app/districts/");
 }
 
 function show_schools($dist_id, $dist_name) {
