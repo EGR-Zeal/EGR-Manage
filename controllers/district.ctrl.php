@@ -10,8 +10,9 @@ function show_schools($dist_id, $dist_name) {
     if (!empty($dist_id)) {
         $schools = \models\get_all_where("school", "district = '$dist_id'");
         // need function get_all_models($model, $where); returns array of models of type $model
-        $obj = json_encode($schools, JSON_PRETTY_PRINT);
-        $page["body"] = "<pre>" . $obj . "</pre>";
+        foreach($schools as $school){
+            $page["body"] .= "<a href='#'>" . $school->name . "</a>\n";
+        }
         $page["title"] = $dist_name;
         template("default", $page);
     } else {
