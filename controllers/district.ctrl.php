@@ -1,12 +1,12 @@
 <?php
 
-if (!empty($args[0])) {
-    $dist_name = str_replace("_", " ", $args[0]);
+if (!empty($args["dist_name"])) {
+    $dist_name = str_replace("_", " ", $args["dist_name"]);
     $dist_id = $db->query("SELECT id FROM district WHERE name = '$dist_name' LIMIT 1")[0]["id"];
-    if (empty($args[1])) {
+    if (empty($args["school_name"])) {
         show_schools($dist_id, $dist_name);
     } else {
-        $school_name = str_replace("_", " ", $args[1]);
+        $school_name = str_replace("_", " ", $args["school_name"]);
         $school_id = $db->query("SELECT id FROM school WHERE district = '$dist_id' AND name = '$school_name' LIMIT 1")[0]["id"];
     }
 } else {

@@ -39,9 +39,9 @@ function load_controller() {
     require_once 'router.php';
     $req = request();
     $controller = "404";
-    foreach ($controllers as $ctrl => $path) {
+    foreach ($controllers as $path => $ctrl) {
         $test = match_route($req, $path);
-        if($test){
+        if($test !== FALSE){
             $args = $test;
             $controller = $ctrl;
             break;
