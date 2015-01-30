@@ -8,6 +8,10 @@ if (!empty($args["dist_name"])) {
     } else {
         $school_name = str_replace("_", " ", $args["school_name"]);
         $school_id = $db->query("SELECT id FROM school WHERE district = '$dist_id' AND name = '$school_name' LIMIT 1")[0]["id"];
+        $page["body"] .= <<<EOD
+                <a href="./plans">Plans</a>
+EOD;
+        template("default", $page);
     }
 } else {
     header("Location: http://egrobotics.com/dev/app/districts/");
