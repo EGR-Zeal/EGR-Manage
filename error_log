@@ -1,2 +1,0 @@
-[20-Jan-2015 14:12:33 America/Denver] PHP Warning:  preg_match_all(): Compilation failed: missing terminating ] for character class at offset 11 in /home2/interet0/public_html/egr/dev/app/test.php on line 16
-[20-Jan-2015 14:12:33 America/Denver] PHP Warning:  preg_replace(): Compilation failed: missing terminating ] for character class at offset 11 in /home2/interet0/public_html/egr/dev/app/test.php on line 18

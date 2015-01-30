@@ -7,7 +7,7 @@ function match_route($request, $route) {
     $var_names = $var_matches[1];
     //replace URL arguments with regex ([^\/]+)
     $route_pattern_quote = preg_quote($route);
-    $route_pattern = "|" . preg_replace("/\\\\{[^\\\]+\\\\}/", "([^\/]+)", $route_pattern_quote) . "|";
+    $route_pattern = "|^" . preg_replace("/\\\\{[^\\\]+\\\\}/", "([^\/]+)", $route_pattern_quote) . "$|";
     //attempt a match
     $matches = [];
     $num_matches = preg_match_all($route_pattern, $request, $matches);

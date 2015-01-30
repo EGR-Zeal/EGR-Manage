@@ -36,24 +36,18 @@ $args = null;
 function load_controller() {
     global $args;
     require_once 'controllers/index.php';
+    require_once 'router.php';
     $req = request();
-    $key = null;
-    $smallestargs = str_repeat("0", 1000);
+    $controller = "404";
     foreach ($controllers as $ctrl => $path) {
-        $args = str_replace($path, "", $req);
-        if (strlen($args) < strlen($smallestargs)) {
-            $smallestargs = $args;
-            $key = $ctrl;
+        $test = match_route($req, $path);
+        if($test){
+            $args = $test;
+            $controller = $ctrl;
+            break;
         }
     }
-    $args = explode("/", $args);
-    if ($args[0] === "") {
-        array_shift($args);
-    }
-    if (empty($key)) {
-        return "controllers/404.ctrl.php";
-    }
-    return "controllers/" . $key . ".ctrl.php";
+    return "controllers/" . $controller . ".ctrl.php";
 }
 
 $page = [

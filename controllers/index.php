@@ -2,5 +2,6 @@
 
 $controllers = [
     "districts" => "districts",
-    "district" => "district"
+    "district" => "district",
+    "test" => "test/{bob}/{cal}/{jim}"
 ];
