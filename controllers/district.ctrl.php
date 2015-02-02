@@ -18,9 +18,9 @@ EOD;
 }
 
 function show_schools($dist_id, $dist_name) {
+    global $page;
     if (!empty($dist_id)) {
-        $schools = \models\get_all_where("school", "district = '$dist_id'");
-        // need function get_all_models($model, $where); returns array of models of type $model
+        $schools = models\Models::get_all_where("school", "district = '$dist_id'");
         foreach ($schools as $school) {
             $page["body"] .= "<a href='" . str_replace(" ", "_", $school->name) . "'>" . $school->name . "</a>\n";
         }

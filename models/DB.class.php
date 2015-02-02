@@ -85,15 +85,3 @@ class DB {
     }
 
 }
-
-
-function get_all_where($type, $condition){
-    global $db;
-    $arr = [];
-    $res = $db->query("SELECT id FROM $type WHERE $condition");
-    $class = "models\EGR_" . ucfirst($type);
-    foreach($res as $object){
-        $arr[] = new $class($object["id"]);
-    }
-    return $arr;
-}
