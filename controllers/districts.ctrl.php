@@ -4,7 +4,7 @@ $districts = \models\Models::get_all_where("district", "id > 0");
 foreach ($districts as $district) {
     $distname = str_replace(" ", "_", $district->name);
     $page["body"] .= <<<EOD
-            <a href="$distname">$district->name</a>\n
+            <a href="$distname">$district->name</a>
 EOD;
 }
 $page["title"] = "Districts";

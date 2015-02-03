@@ -4,6 +4,12 @@ namespace models;
 
 class Models {
 
+    public function district($name) {
+        global $db;
+        $id = $db->query("SELECT id FROM district WHERE name = '$name' LIMIT 1")[0]["id"];
+        return new EGR_District($id);
+    }
+
     public function school($district, $school) {
         global $db;
         $id = $db->query("SELECT school.id AS id FROM school JOIN district ON(school.district = district.id) WHERE district.name = '$district' AND school.name = '$school' LIMIT 1")[0]["id"];
