@@ -1,11 +1,10 @@
 <?php
 
-$districts = $db->query("SELECT name, id FROM district WHERE id > 0 ORDER BY name");
-$page["body"] = "";
+$districts = \models\Models::get_all_where("district", "id > 0");
 foreach ($districts as $district) {
-    $distname = str_replace(" ", "_", $district["name"]);
+    $distname = str_replace(" ", "_", $district->name);
     $page["body"] .= <<<EOD
-            <a href="../district/{$distname}">{$district["name"]}</a>\n
+            <a href="$distname">$district->name</a>\n
 EOD;
 }
 $page["title"] = "Districts";
